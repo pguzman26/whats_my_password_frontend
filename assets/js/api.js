@@ -174,7 +174,7 @@ var whatsMyPassword = {
     showPasswords: function(token, callback) {
         this.ajax({
             method: 'GET',
-            url: this.url + '/groceries',
+            url: this.url + '/credentials',
             headers: {
                 Authorization: 'Token token=' + token
             },

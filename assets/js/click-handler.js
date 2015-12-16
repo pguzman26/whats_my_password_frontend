@@ -145,17 +145,22 @@ $('#create-credential').on('submit', function(e) {
 // read
 
     $('#show-activity-list').on('click', function(e) {
-        $('#activity-table').html('');
+        $('#table-logs').html('');
         e.preventDefault();
-        var whatsMyPassword = whatsMyPassword.showPasswords;
+        var token = PasswordApp.token;
+
+         whatsMyPassword.showPasswords(token, function(error, data){
+            var display = function(){
+          var newHTML = credentailTemplate(data);
+          $("#table-logs").html(newHTML);
+        };
+      display();
+  });
 
 
-         whatsMyPassword(PasswordApp.token, function(err, data){
 
-            var credentials = data.credentials;
-            var listHTML = "";
-
-        });
+            // var credentials = data.credentials;
+            // var listHTML = "";
 
 
     });

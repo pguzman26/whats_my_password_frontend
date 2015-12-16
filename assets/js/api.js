@@ -137,9 +137,9 @@ var whatsMyPassword = {
     listPasswords: function(token, callback) {
         this.ajax({
             method: 'GET',
-            url: this.url + '/groceries/',
+            url: this.url + '/credentials/',
             headers: {
-                Authorization: 'Token token=' + groceryApp.token
+                Authorization: 'Token token=' + token
             },
             dataType: 'json'
         }, callback);
@@ -150,7 +150,7 @@ var whatsMyPassword = {
             method: 'PATCH',
             url: this.url + '/groceries/' + id,
             headers: {
-                Authorization: 'Token token=' + groceryApp.token
+                Authorization: 'Token token=' + token
             },
             contentType: 'application/json',
             data: JSON.stringify(grocery),
@@ -158,15 +158,15 @@ var whatsMyPassword = {
         }, callback);
     },
 
-    createPasswords: function(token, grocery, callback) {
+    createPasswords: function(token, credential, callback) {
         this.ajax({
             method: 'POST',
-            url: this.url + '/groceries/',
+            url: this.url + '/credentials/',
             headers: {
-                Authorization: 'Token token=' + groceryApp.token
+                Authorization: 'Token token=' + token
             },
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(grocery),
+            data: JSON.stringify(credential),
             dataType: 'json',
         }, callback);
     },
@@ -176,7 +176,7 @@ var whatsMyPassword = {
             method: 'GET',
             url: this.url + '/groceries',
             headers: {
-                Authorization: 'Token token=' + groceryApp.token
+                Authorization: 'Token token=' + token
             },
             dataType: 'json'
         }, callback);
@@ -187,7 +187,7 @@ var whatsMyPassword = {
             method: 'DELETE',
             url: this.url + '/groceries/' + id,
             headers: {
-                Authorization: 'Token token=' + groceryApp.token
+                Authorization: 'Token token=' + token
             }
         }, callback);
     }

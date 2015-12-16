@@ -7,73 +7,74 @@
     <title>What's My Password</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/bootstrap/fonts/font-awesome.min.css">
+    <script src="assets/js/handlebars-v4.0.5.js"></script>
+
 </head>
 
 <body>
     <div id="landing-page">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header"><a class="navbar-brand navbar-link"><span class="fa fa-unlock"></span> What's My Password</a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"></button>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand navbar-link"><span class="fa fa-unlock"></span> What's My Password</a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <form class="navbar-form navbar-right bootstrap-form-with-validation">
+                        <div class="checkbox">
+                            <label> </label>
+                        </div>
+                        <button class="btn btn-primary" id="register-button">Login/Register</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right"></ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <form class="navbar-form navbar-right bootstrap-form-with-validation">
-                    <div class="checkbox">
-                        <label> </label>
+        </nav>
+        <div class="jumbotron hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-push-7 phone-preview">
+                        <div class="iphone-mockup"></div><img src="assets/img/PASSWORD.jpg"></div>
+                    <div class="col-md-6 col-md-pull-3 get-it">
+                        <h1>Save Your Password</h1>
+                        <p>If you are tired of remembering your password, this is a great solution to save your information and access it from anywhere.</p>
                     </div>
-                    <button  class="btn btn-primary" id="register-button">Login/Register</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right"></ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="jumbotron hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-push-7 phone-preview">
-                    <div class="iphone-mockup"></div><img src="assets/img/PASSWORD.jpg"></div>
-                <div class="col-md-6 col-md-pull-3 get-it">
-                    <h1>Save Your Password</h1>
-                    <p>If you are tired of remembering your password, this is a great solution to save your information and access it from anywhere.</p>
                 </div>
             </div>
         </div>
-    </div>
-    <section class="testimonials">
-        <h2 class="text-center">Why People Love It!</h2>
-        <blockquote>
-            <p>It is easy and convenient to use.</p>
-            <footer> </footer>
-        </blockquote>
-    </section>
-    <section class="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Fantastic Features</h2>
-                    <p>Morbi non mauris massa. Duis elit mauris, malesuada nec suscipit ac, bibendum sed augue. Maecenas condimentum magna gravida, laoreet nunc sed, euismod sem. </p>
+        <section class="testimonials">
+            <h2 class="text-center">Why People Love It!</h2>
+            <blockquote>
+                <p>It is easy and convenient to use.</p>
+                <footer> </footer>
+            </blockquote>
+        </section>
+        <section class="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Fantastic Features</h2>
+                        <p>Morbi non mauris massa. Duis elit mauris, malesuada nec suscipit ac, bibendum sed augue. Maecenas condimentum magna gravida, laoreet nunc sed, euismod sem. </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-offset-0 col-md-offset-6 col-sm-6 social-icons"><a href="#"><span class="fa fa-facebook"></span></a><a href="#"><span class="fa fa-twitter"></span></a><a href="#"><span class="fa fa-instagram"></span></a></div>
+        </section>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-offset-0 col-md-offset-6 col-sm-6 social-icons"><a href="#"><span class="fa fa-facebook"></span></a><a href="#"><span class="fa fa-twitter"></span></a><a href="#"><span class="fa fa-instagram"></span></a></div>
+                </div>
             </div>
-        </div>
-        <div></div>
-    </footer>
+            <div></div>
+        </footer>
     </div>
-
     <!-- Log/Register form -->
-<div id='login-register-form' class="container">
-        <div class="row">
+    <div id='login-register-form' class="container">
+        <div id='hide-login-form' class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-login">
-                    <div  class="panel-heading">
+                    <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
                                 <a href="#" class="active" id="login-form-link">Login</a>
@@ -94,7 +95,6 @@
                                     <div class="form-group">
                                         <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                     </div>
-
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
@@ -113,7 +113,6 @@
                                     </div>
                                 </form>
                                 <form id="register-form" method="post" role="form" style="display: none;">
-
                                     <div class="form-group">
                                         <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
                                     </div>
@@ -138,13 +137,213 @@
             </div>
         </div>
     </div>
+    <!-- What's My Password -->
+    <div id="app-page">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">What's My Password</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                    <!-- bootstrap test -->
+                    <form id="create-credential" class="forms">
+                    <div class="form-group" name="website">
+                        <label for="usr">Website</label>
+                        <input type="text" name="website" class="form-control" id="website">
+                    </div>
+                    <div class="form-group" name="user_name">
+                        <label for="pwd">User Name</label>
+                        <input type="text" name="user_name" class="form-control" id="username">
+                    </div>
+                    <div class="form-group" name="password">
+                        <label for="pwd">Password</label>
+                        <input type="text" name="password" class="form-control" id="pwd">
+                    </div>
+                    <input type="submit" name="Create List" class="btn btn-primary" id="create-credentials">
+                    <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
+                    </form>
+                    <!-- /.row -->
+                    <!-- end test -->
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Dashboard</h1>
+                    <h2 class="sub-header">Section title</h2>
+                    <div class="table-responsive">
+                        <table id="activity-table" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Website</th>
+                                    <th>User Name</th>
+                                    <th>Password</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-logs">
+                                <script id="credential-handlebars" type="text/x-handlebars-template">
+                                    {{#each credentials}}
+                                    <tr>
+                                        <td>{{website}}</td>
+                                        <td>{{username}}</td>
+                                        <td>{{password}}</td>
+                                        <td>
+                                            <button data-id={{id}}>Delete</button>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </script>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="name" />,002</td>
+                                    <td>amet</td>
+                                    <td>consectetur</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>Integer</td>
+                                    <td>nec</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>libero</td>
+                                    <td>Sed</td>
+                                </tr>
+                                <tr>
+                                    <td>1,004</td>
+                                    <td>dapibus</td>
+                                    <td>diam</td>
+                                </tr>
+                                <tr>
+                                    <td>1,005</td>
+                                    <td>Nulla</td>
+                                    <td>quis</td>
+                                </tr>
+                                <tr>
+                                    <td>1,006</td>
+                                    <td>nibh</td>
+                                    <td>elementum</td>
+                                </tr>
+                                <tr>
+                                    <td>1,007</td>
+                                    <td>sagittis</td>
+                                    <td>ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>1,008</td>
+                                    <td>Fusce</td>
+                                    <td>nec</td>
+                                </tr>
+                                <tr>
+                                    <td>1,009</td>
+                                    <td>augue</td>
+                                    <td>semper</td>
+                                </tr>
+                                <tr>
+                                    <td>1,010</td>
+                                    <td>massa</td>
+                                    <td>Vestibulum</td>
+                                </tr>
+                                <tr>
+                                    <td>1,011</td>
+                                    <td>eget</td>
+                                    <td>nulla</td>
+                                </tr>
+                                <tr>
+                                    <td>1,012</td>
+                                    <td>taciti</td>
+                                    <td>sociosqu</td>
+                                </tr>
+                                <tr>
+                                    <td>1,013</td>
+                                    <td>torquent</td>
+                                    <td>per</td>
+                                </tr>
+                                <tr>
+                                    <td>1,014</td>
+                                    <td>per</td>
+                                    <td>inceptos</td>
+                                </tr>
+                                <tr>
+                                    <td>1,015</td>
+                                    <td>sodales</td>
+                                    <td>ligula</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bootstrap test -->
+    <!-- test -->
+    <div id="squat-logs" class="log-div">
+        <form id="show-squat">
+            <input name="show" type="submit" value="Show all squat records">
+        </form>
+        <!-- ____________CREATE SQUAT LOG_____________ -->
+        <form id="create-squat" class="forms">
+            <input name="weight" type="text" placeholder="Weight lifted">
+            <input name="reps" type="text" placeholder="Reps lifted">
+            <input name="date" type="text" placeholder="date xxxx-xx-xx">
+            <input name="create" type="submit" value="Create squat">
+        </form>
+        <!-- __________TABLE____________________ -->
+        <div id="show-squat-table">
+            <table id="squat-log-table" class="table table-hover">
+                <thead>
+                    <th>Weight</th>
+                    <th>Reps</th>
+                    <th>Date</th>
+                    <th>ID</th>
+                </thead>
+                <tbody id="squat-log-body">
+                    <script id="squat-handlebars" type="text/x-handlebars-squat">
+                        {{#each squats}}
+                        <tr>
+                            <td>{{weight}}</td>
+                            <td>{{reps}}</td>
+                            <td>{{date}}</td>
+                            <td>{{id}}</td>
+                            <td>
+                                <button data-id={{id}}>Delete</button>
+                            </td>
+                        </tr>
+                        <{{/each}}>
+                    </script>
+                </tbody>
+            </table>
+        </div>
 
-
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/api.js"></script>
-    <script src="assets/js/click-handler.js"></script>
+        <!-- Show Activity List Button -->
+    <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
+        <!-- Hidden Form for edit -->
+        <form>
+            <input type="hidden" name="hiddenField" />
+        </form>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/click-handler.js"></script>
 </body>
 
 </html>

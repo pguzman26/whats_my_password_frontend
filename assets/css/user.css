@@ -1,3 +1,7 @@
+[class^="editInput"], [class*=" editInput"] {
+  display: none;
+}
+
 .navbar{
   margin-bottom:0;
   border:none;

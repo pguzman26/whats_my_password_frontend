@@ -148,7 +148,7 @@ var whatsMyPassword = {
     updatePasswords: function(token, id, grocery, callback) {
         this.ajax({
             method: 'PATCH',
-            url: this.url + '/groceries/' + id,
+            url: this.url + '/credentials/' + id,
             headers: {
                 Authorization: 'Token token=' + token
             },
@@ -185,7 +185,7 @@ var whatsMyPassword = {
     deletePasswords: function(token, id, callback) {
         this.ajax({
             method: 'DELETE',
-            url: this.url + '/groceries/' + id,
+            url: this.url + '/credentials/' + id,
             headers: {
                 Authorization: 'Token token=' + token
             }

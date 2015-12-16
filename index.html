@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/bootstrap/fonts/font-awesome.min.css">
     <script src="assets/js/handlebars-v4.0.5.js"></script>
-
 </head>
 
 <body>
@@ -165,20 +164,20 @@
                     </ul>
                     <!-- bootstrap test -->
                     <form id="create-credential" class="forms">
-                    <div class="form-group" name="website">
-                        <label for="usr">Website</label>
-                        <input type="text" name="website" class="form-control" id="website">
-                    </div>
-                    <div class="form-group" name="user_name">
-                        <label for="pwd">User Name</label>
-                        <input type="text" name="user_name" class="form-control" id="username">
-                    </div>
-                    <div class="form-group" name="password">
-                        <label for="pwd">Password</label>
-                        <input type="text" name="password" class="form-control" id="pwd">
-                    </div>
-                    <input type="submit" name="Create List" class="btn btn-primary" id="create-credentials">
-                    <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
+                        <div class="form-group" name="website">
+                            <label for="usr">Website</label>
+                            <input type="text" name="website" class="form-control" id="website">
+                        </div>
+                        <div class="form-group" name="user_name">
+                            <label for="pwd">User Name</label>
+                            <input type="text" name="user_name" class="form-control" id="username">
+                        </div>
+                        <div class="form-group" name="password">
+                            <label for="pwd">Password</label>
+                            <input type="text" name="password" class="form-control" id="pwd">
+                        </div>
+                        <input type="submit" name="Create List" class="btn btn-primary" id="create-credentials">
+                        <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
                     </form>
                     <!-- /.row -->
                     <!-- end test -->
@@ -198,95 +197,31 @@
                             <tbody id="table-logs">
                                 <script id="credential-handlebars" type="text/x-handlebars-template">
                                     {{#each credentials}}
-                                    <tr>
-                                        <td>{{website}}</td>
-                                        <td>{{user_name}}</td>
-                                        <td>{{password}}</td>
-                                        <td>
-                                            <button data-id={{id}}>Delete</button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="viewText{{id}}">{{website}}</span>
+                                                <input class="editInput{{id}}" type="text" name="website" value="{{website}}" />
+                                            </td>
+                                            <td><span class="viewText{{id}}">{{user_name}}</span>
+                                                <input class="editInput{{id}}" type="text" name="user_name"
+                                                value="{{user_name}}" />
+                                            </td>
+                                            <td><span class="viewText{{id}}">{{password}}</span>
+                                                <input class="editInput{{id}}" type="text" name="password"
+                                                value="{{password}}"/>
+                                            </td>
+                                            <td>
+                                                <button data-id="{{id}}" data-type="edit">Edit</button>
+                                                <button data-id="{{id}}" class="editInput{{id}}" data-type="submit">Submit</button>
+                                                <button data-id="{{id}}" class="editInput{{id}}" data-type="reset">Cancel</button>
+                                                <button data-id="{{id}}" data-type="delete">Delete</button>
+                                            </td>
+                                        </tr>
                                     {{/each}}
                                 </script>
-                                <tr>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="hidden" name="name" />,002</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                </tr>
-                                <tr>
-                                    <td>1,004</td>
-                                    <td>dapibus</td>
-                                    <td>diam</td>
-                                </tr>
-                                <tr>
-                                    <td>1,005</td>
-                                    <td>Nulla</td>
-                                    <td>quis</td>
-                                </tr>
-                                <tr>
-                                    <td>1,006</td>
-                                    <td>nibh</td>
-                                    <td>elementum</td>
-                                </tr>
-                                <tr>
-                                    <td>1,007</td>
-                                    <td>sagittis</td>
-                                    <td>ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>1,008</td>
-                                    <td>Fusce</td>
-                                    <td>nec</td>
-                                </tr>
-                                <tr>
-                                    <td>1,009</td>
-                                    <td>augue</td>
-                                    <td>semper</td>
-                                </tr>
-                                <tr>
-                                    <td>1,010</td>
-                                    <td>massa</td>
-                                    <td>Vestibulum</td>
-                                </tr>
-                                <tr>
-                                    <td>1,011</td>
-                                    <td>eget</td>
-                                    <td>nulla</td>
-                                </tr>
-                                <tr>
-                                    <td>1,012</td>
-                                    <td>taciti</td>
-                                    <td>sociosqu</td>
-                                </tr>
-                                <tr>
-                                    <td>1,013</td>
-                                    <td>torquent</td>
-                                    <td>per</td>
-                                </tr>
-                                <tr>
-                                    <td>1,014</td>
-                                    <td>per</td>
-                                    <td>inceptos</td>
-                                </tr>
-                                <tr>
-                                    <td>1,015</td>
-                                    <td>sodales</td>
-                                    <td>ligula</td>
-                                </tr>
+                                <form>
+                                    <input type="button" onclick="changeContent()" value="Change content">
+                                </form>
                             </tbody>
                         </table>
                     </div>
@@ -296,46 +231,8 @@
     </div>
     <!-- bootstrap test -->
     <!-- test -->
-    <div id="squat-logs" class="log-div">
-        <form id="show-squat">
-            <input name="show" type="submit" value="Show all squat records">
-        </form>
-        <!-- ____________CREATE SQUAT LOG_____________ -->
-        <form id="create-squat" class="forms">
-            <input name="weight" type="text" placeholder="Weight lifted">
-            <input name="reps" type="text" placeholder="Reps lifted">
-            <input name="date" type="text" placeholder="date xxxx-xx-xx">
-            <input name="create" type="submit" value="Create squat">
-        </form>
-        <!-- __________TABLE____________________ -->
-        <div id="show-squat-table">
-            <table id="squat-log-table" class="table table-hover">
-                <thead>
-                    <th>Weight</th>
-                    <th>Reps</th>
-                    <th>Date</th>
-                    <th>ID</th>
-                </thead>
-                <tbody id="squat-log-body">
-                    <script id="squat-handlebars" type="text/x-handlebars-squat">
-                        {{#each squats}}
-                        <tr>
-                            <td>{{weight}}</td>
-                            <td>{{reps}}</td>
-                            <td>{{date}}</td>
-                            <td>{{id}}</td>
-                            <td>
-                                <button data-id={{id}}>Delete</button>
-                            </td>
-                        </tr>
-                        <{{/each}}>
-                    </script>
-                </tbody>
-            </table>
-        </div>
-
         <!-- Show Activity List Button -->
-    <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
+        <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
         <!-- Hidden Form for edit -->
         <form>
             <input type="hidden" name="hiddenField" />

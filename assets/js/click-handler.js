@@ -131,81 +131,121 @@ $(document).ready(function(e) {
         });
     });
 
-// Create
-$('#create-credential').on('submit', function(e) {
-    var credentials = wrap('credential', form2object(this));
-    console.log(form2object(this));
-    var token = PasswordApp.token;
-    e.preventDefault();
-    whatsMyPassword.createPasswords(token, credentials, callback);
+    // Create
+    $('#create-credential').on('submit', function(e) {
+        var credentials = wrap('credential', form2object(this));
+        console.log(form2object(this));
+        var token = PasswordApp.token;
+        e.preventDefault();
+        whatsMyPassword.createPasswords(token, credentials, callback);
     });
 
 
 
-// read
+    // read
 
     $('#show-activity-list').on('click', function(e) {
         $('#table-logs').html('');
         e.preventDefault();
         var token = PasswordApp.token;
 
-         whatsMyPassword.showPasswords(token, function(error, data){
-            var display = function(){
-          var newHTML = credentailTemplate(data);
-          $("#table-logs").html(newHTML);
-        };
-      display();
-  });
-
-
-
-            // var credentials = data.credentials;
-            // var listHTML = "";
-
+        whatsMyPassword.showPasswords(token, function(error, data) {
+            var display = function() {
+                var newHTML = credentailTemplate(data);
+                $("#table-logs").html(newHTML);
+            };
+            display();
+        });
 
     });
 
+    // delete
 
-  //   $("#show-bench").on("submit", function(e) {
-  //   //var id = $(".id").val();
-  //     var token = $(".token").val();
-  //     e.preventDefault();
+    $("#table-logs").on("click", "button[data-type=delete]", function(e) {
+        var elementID = $(event.target).data("id");
+        var token = PasswordApp.token;
+        whatsMyPassword.deletePasswords(token, elementID, function(error, data) {
+            $(event.target).parents("tr").remove();
 
-  //     benchController.showLogs(token, function(error, data) {
-  //       // if (error) {
-  //       //   console.error(error);
-  //       // $('#result').val('status: ' + error.status + ', error: ' +error.error);
-  //       //   return;
-  //       // }
-  //       $('#result').val(JSON.stringify(data, null, 4));
-  //       data.benches = data.benches;
-  //       var display = function(){
-  //         var newHTML = benchTableTemplate({benches: data.benches});
-  //         $("#bench-log-body").html(newHTML);
-  //       };
-  //     display();
-  //   }); //end of anon callback fnc
-  // });
-
-// $('#show-activity-list').on('click', function(e) {
-//         $('#activity-table').html('');
-//         e.preventDefault();
-//         var item = {
-//             name: "name"
-//         };
-//         smart_grocery.showGroceries(groceryApp.token, function(err, data) {
-//             console.log('data is' + data);
-//             var groceries = data.groceries;
-//             var listHTML = "";
-//             groceries.forEach(function(grocery) {
-//                 listHTML += "<tr data-id=\"" + grocery.id + "\"><td>" + grocery.name + "</td>" +
-//                     "<td><button class='edit' >Edit</button><button class='delete'>Delete</button></td></tr>";
-
-//             });
-//             $('#activity-table').append(listHTML);
-//         });
+        });
+    });
 
 
-//     }); // end Show grocery Item
+// Update
+
+$("#table-logs").on("click", "button[data-type=submit]", function(e) {
+        // var elementID = $(event.target).data("id");
+        // var token = PasswordApp.token;
+        // whatsMyPassword.updatePasswords(token, elementID, function(error, data) {
+        //     $(event.target).parents("tr").update();
+
+        // });
+    debugger;
+});
+
+$("#table-logs").on("click", "button[data-type=reset]", function(e) { // <----
+    debugger;
+});
+
+$("#table-logs").on("click", "button[data-type=edit]", function(e) {
+    $(e.target).parent().parent().children().children('span, button').hide();
+    $('.editInput' + $(e.target).data('id')).show();
+});
+
+
+    //   $("#bench-log-body").on("click", function(event){
+    //   var elementID = $(event.target).data("id");
+    //   if(elementID === undefined){
+    //     return;
+    //   }
+    //   var token = $(".token").val();
+    //   benchController.deleteRow(token, elementID, function() {
+    //     $(event.target).parents("tr").remove();
+    //   });
+    // });
+
+
+    //   $("#show-bench").on("submit", function(e) {
+    //   //var id = $(".id").val();
+    //     var token = $(".token").val();
+    //     e.preventDefault();
+
+    //     benchController.showLogs(token, function(error, data) {
+    //       // if (error) {
+    //       //   console.error(error);
+    //       // $('#result').val('status: ' + error.status + ', error: ' +error.error);
+    //       //   return;
+    //       // }
+    //       $('#result').val(JSON.stringify(data, null, 4));
+    //       data.benches = data.benches;
+    //       var display = function(){
+    //         var newHTML = benchTableTemplate({benches: data.benches});
+    //         $("#bench-log-body").html(newHTML);
+    //       };
+    //     display();
+    //   }); //end of anon callback fnc
+    // });
+
+    // $('#show-activity-list').on('click', function(e) {
+    //         $('#activity-table').html('');
+    //         e.preventDefault();
+    //         var item = {
+    //             name: "name"
+    //         };
+    //         smart_grocery.showGroceries(groceryApp.token, function(err, data) {
+    //             console.log('data is' + data);
+    //             var groceries = data.groceries;
+    //             var listHTML = "";
+    //             groceries.forEach(function(grocery) {
+    //                 listHTML += "<tr data-id=\"" + grocery.id + "\"><td>" + grocery.name + "</td>" +
+    //                     "<td><button class='edit' >Edit</button><button class='delete'>Delete</button></td></tr>";
+
+    //             });
+    //             $('#activity-table').append(listHTML);
+    //         });
+
+
+    //     }); // end Show grocery Item
+
 
 });

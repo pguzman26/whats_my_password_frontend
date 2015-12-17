@@ -23,8 +23,8 @@ var cb = function(err, data){
 };
 
 var whatsMyPassword = {
-    url: 'http://localhost:3000',
-    // url: 'https://nameless-tundra-6319.herokuapp.com/',
+    // url: 'http://localhost:3000',
+    url: 'https://boiling-journey-3336.herokuapp.com/',
 
     ajax: function(config, cb) {
         $.ajax(config).done(function(data, textStatus, jqxhr) {

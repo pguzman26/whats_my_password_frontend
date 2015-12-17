@@ -194,36 +194,30 @@
                                     <th>Password</th>
                                 </tr>
                             </thead>
-
                             <tbody id="table-logs">
-
                                 <script id="credential-handlebars" type="text/x-handlebars-template">
                                     {{#each credentials}}
-                                        <tr>
-                                            <td>
-                                                <span class="viewText{{id}}">{{website}}</span>
-                                                <input class="editInput{{id}}" type="text" name="website" value="{{website}}" data-field="website"/>
-                                            </td>
-                                            <td><span class="viewText{{id}}">{{user_name}}</span>
-                                                <input class="editInput{{id}}" type="text" name="user_name"
-                                                value="{{user_name}}" data-field="user_name"/>
-                                            </td>
-                                            <td><span class="viewText{{id}}">{{password}}</span>
-                                                <input class="editInput{{id}}" type="text" name="password"
-                                                value="{{password}}" data-field="password"/>
-                                            </td>
-                                            <td>
-                                                <button data-id="{{id}}" data-type="edit">Edit</button>
-                                                <button data-id="{{id}}" class="editInput{{id}}" data-type="submit">Submit</button>
-                                                <button data-id="{{id}}" class="editInput{{id}}" data-type="reset">Cancel</button>
-                                                <button data-id="{{id}}" data-type="delete">Delete</button>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="viewText{{id}}">{{website}}</span>
+                                            <input class="editInput{{id}}" type="text" name="website" value="{{website}}" data-field="website" />
+                                        </td>
+                                        <td><span class="viewText{{id}}">{{user_name}}</span>
+                                            <input class="editInput{{id}}" type="text" name="user_name" value="{{user_name}}" data-field="user_name" />
+                                        </td>
+                                        <td><span class="viewText{{id}}">{{password}}</span>
+                                            <input class="editInput{{id}}" type="text" name="password" value="{{password}}" data-field="password" />
+                                        </td>
+                                        <td>
+                                            <button data-id="{{id}}" data-type="edit">Edit</button>
+                                            <button data-id="{{id}}" class="editInput{{id}}" data-type="submit">Submit</button>
+                                            <button data-id="{{id}}" class="editInput{{id}}" data-type="reset">Cancel</button>
+                                            <button data-id="{{id}}" data-type="delete">Delete</button>
+                                        </td>
+                                    </tr>
                                     {{/each}}
                                 </script>
-
                             </tbody>
-
                         </table>
                     </div>
                 </div>
@@ -232,16 +226,16 @@
     </div>
     <!-- bootstrap test -->
     <!-- test -->
-        <!-- Show Activity List Button -->
-        <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
-        <!-- Hidden Form for edit -->
-        <form>
-            <input type="hidden" name="hiddenField" />
-        </form>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/api.js"></script>
-        <script src="assets/js/click-handler.js"></script>
+    <!-- Show Activity List Button -->
+<!--     <button type="button" class="btn btn-primary" id="show-activity-list">View Your List</button>
+ -->    <!-- Hidden Form for edit -->
+    <form>
+        <input type="hidden" name="hiddenField" />
+    </form>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/click-handler.js"></script>
 </body>
 
 </html>

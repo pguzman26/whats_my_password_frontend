@@ -3,6 +3,7 @@
 $(document).ready(function(e) {
     $('#app-page').hide();
     $('#hide-login-form').hide();
+    // $('#show-activity-list').hide();
 
 
     /////////// Global Variable/////////////////
@@ -88,6 +89,7 @@ $(document).ready(function(e) {
         whatsMyPassword.register(credentials, function(err, data) {
             console.log(err, data);
             $('#login-register-form').hide();
+            $('#app-page').fadeIn();
             // $('#reg-popup').hide();
             // $('#landing-page').detach();
             // $('#register-button').hide();

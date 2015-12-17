@@ -179,7 +179,6 @@ $(document).ready(function(e) {
             }
         };
         console.log(updateCred);
-        debugger;
         whatsMyPassword.updatePasswords(token, id, updateCred, callback);
 
     });

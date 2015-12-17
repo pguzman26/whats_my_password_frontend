@@ -174,19 +174,42 @@ $(document).ready(function(e) {
 // Update
 
 $("#table-logs").on("click", "button[data-type=submit]", function(e) {
-        // var elementID = $(event.target).data("id");
-        // var token = PasswordApp.token;
-        // whatsMyPassword.updatePasswords(token, elementID, function(error, data) {
-        //     $(event.target).parents("tr").update();
+        var id = $(event.target).data("id");
+        var token = PasswordApp.token;
+        // var credentials = wrap('credential', form2object(this));
+var updateCred = {
+      credential: {
+      website: $('[name=website][class=editInput'+ id +']').val(),
+      user_name: $('[name=user_name][class=editInput'+ id +']').val(),
+      // email: $('[name=email][class=editInput'+ id +']').val(),
+      password: $('[name=password][class=editInput'+ id +']').val()
 
-        // });
+    }
+  };
+console.log(updateCred);
     debugger;
+        whatsMyPassword.updatePasswords(token, id, updateCred, callback);
+
 });
 
+
+
+
+ // $('#create-credential').on('submit', function(e) {
+ //        var credentials = wrap('credential', form2object(this));
+ //        console.log(form2object(this));
+ //        var token = PasswordApp.token;
+ //        e.preventDefault();
+ //        whatsMyPassword.createPasswords(token, credentials, callback);
+ //    });
+
+//cancel button
 $("#table-logs").on("click", "button[data-type=reset]", function(e) { // <----
-    debugger;
-});
+    $(e.target).parent().parent().children().children('span, button').show();
+    $('.editInput' + $(e.target).data('id')).hide();
 
+});
+//shows a new table to edit
 $("#table-logs").on("click", "button[data-type=edit]", function(e) {
     $(e.target).parent().parent().children().children('span, button').hide();
     $('.editInput' + $(e.target).data('id')).show();

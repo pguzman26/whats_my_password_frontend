@@ -194,21 +194,23 @@
                                     <th>Password</th>
                                 </tr>
                             </thead>
+
                             <tbody id="table-logs">
+
                                 <script id="credential-handlebars" type="text/x-handlebars-template">
                                     {{#each credentials}}
                                         <tr>
                                             <td>
                                                 <span class="viewText{{id}}">{{website}}</span>
-                                                <input class="editInput{{id}}" type="text" name="website" value="{{website}}" />
+                                                <input class="editInput{{id}}" type="text" name="website" value="{{website}}" data-field="website"/>
                                             </td>
                                             <td><span class="viewText{{id}}">{{user_name}}</span>
                                                 <input class="editInput{{id}}" type="text" name="user_name"
-                                                value="{{user_name}}" />
+                                                value="{{user_name}}" data-field="user_name"/>
                                             </td>
                                             <td><span class="viewText{{id}}">{{password}}</span>
                                                 <input class="editInput{{id}}" type="text" name="password"
-                                                value="{{password}}"/>
+                                                value="{{password}}" data-field="password"/>
                                             </td>
                                             <td>
                                                 <button data-id="{{id}}" data-type="edit">Edit</button>
@@ -219,10 +221,9 @@
                                         </tr>
                                     {{/each}}
                                 </script>
-                                <form>
-                                    <input type="button" onclick="changeContent()" value="Change content">
-                                </form>
+
                             </tbody>
+
                         </table>
                     </div>
                 </div>

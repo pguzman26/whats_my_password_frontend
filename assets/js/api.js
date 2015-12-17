@@ -145,7 +145,7 @@ var whatsMyPassword = {
         }, callback);
     },
 
-    updatePasswords: function(token, id, grocery, callback) {
+    updatePasswords: function(token, id, updateCred, callback) {
         this.ajax({
             method: 'PATCH',
             url: this.url + '/credentials/' + id,
@@ -153,7 +153,7 @@ var whatsMyPassword = {
                 Authorization: 'Token token=' + token
             },
             contentType: 'application/json',
-            data: JSON.stringify(grocery),
+            data: JSON.stringify(updateCred),
             dataType: 'json'
         }, callback);
     },

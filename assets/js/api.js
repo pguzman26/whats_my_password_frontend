@@ -23,9 +23,10 @@ var cb = function(err, data){
 };
 
 var whatsMyPassword = {
-    // url: 'https://boiling-journey-3336.herokuapp.com/',
-    url: 'http://localhost:3000',
 
+
+    // url: 'http://localhost:3000',
+    url: 'https://boiling-journey-3336.herokuapp.com/',
 
     ajax: function(config, cb) {
         $.ajax(config).done(function(data, textStatus, jqxhr) {

@@ -7,7 +7,7 @@ This application allows users to Create, Read, Update, and Delete their credenti
 
 #General Approach
 
-The backend was built using Ruby on Rails,  I have set up the routes, controllers, and models. I am using Postgress SQL as a database. In the front end I have set up Ajax to communicate with rails.
+The backend was built using Ruby on Rails,  I have set up the routes, controllers, and models. I am using Postgress SQL as a database. In the front end I have set up Ajax to communicate with rails, and also implemented the use of handlebars.
 
 ## Link to backend repo
 

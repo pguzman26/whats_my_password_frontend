@@ -17,7 +17,7 @@ The backend was built using Ruby on Rails,  I have set up the routes, controller
 
 ## Link to deployed app
 
-- http://gmankd.github.io/whats_my_password_frontend/
+- http://pguzman26.github.io/whats_my_password_frontend/
 
 ## User Stories:
 
